@@ -5,7 +5,7 @@
    <title>BeFactory</title>
    
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="style.css"> </head>
   <style>
     .hero{
       height: 100vh;
@@ -25,7 +25,7 @@
       left:0;
       right:0;
       bottom:0;
-      background:rgba(0, 0, 0, 0.6) ;
+      background:rgb(240, 235, 235) ;
 
     }
     .hero-content{
@@ -34,24 +34,92 @@
 
     }
     .hero h1{
-      font-size: 4rem;
+      font-size: 48px;
       font-weight: bold;
+      font-family: Roboto;
+      letter-spacing: 7px;
+      text-align: left;
+      width:auto;
+      height: auto;
+      margin-bottom: 20px;
     }
     .discover-btn{
-      margin-top: 20px;
-      padding:12px 25px;
+      
+      padding:6px 10px;
       border:2px solid rgb(114,115,116);
       border-color:rgb(50 ,73,104) ;
       color:white;
       background-color:rgb(50 ,73,104)  ;
+      font-size: 0.6rem;
 
       text-decoration: none;
       font-weight:bold ;
     }
     .buy-now{
       color:#F7E900;
+      font-weight: bold;
+      text-decoration: none;
     }
+    .navbar{
+      background-color:#121e2d ;
+      position: relative;
+      height: 81px;
+    }
+    .navbar-logo img{
+  height:30px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+    .navbar-nav .nav-link{
+      position:relative;
+      padding-bottom: 5px;
+       color:white;/* default color */
+    }
+    .navbar .nav-link::after
+   
+    {
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-20px;
+      width:0;
+      height:3px;
+      background-color: #F7E900;
+      
+    } 
+     .buy-now::after{
+      content: "";
+      position: absolute;
+      left:0;
+      bottom: -27px;
+      width: 0;
+      height:3px;
+      background-color: #F7E900;
+     }
+    .navbar-nav .nav-link:hover::after,
+    .buy-now:hover::after
     
+    {
+      width:100% ;
+    }
+.navbar-nav .nav-link.active{
+  color: white;
+  font-weight: bold;
+}
+ 
+.navbar-nav .nav-link.active::after{
+  width: 100%;
+}
+.buy-now{
+  position: relative;
+  color: #F7E900;
+  
+  
+}
+
+   
+
   </style>
 </head>
 
@@ -75,7 +143,7 @@
         </ul>
       </div>
       <!--Buy Now Button-->
-      <a href="#" class="buy-now">BUY NOW</a>
+      <a href="#" class="buy-now">BUY   NOW</a>
     </div>
   </nav>
   <!--hero section-->
@@ -86,6 +154,192 @@
 
     </div>
   </section>
+  <section class="mid-wrap">
+    <div class="container">
+      <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec<br> sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet <br>mauris. Morbi accumsan ipsum velit.</p>
+    </div>
+  </section>
+  
+     <div class="strip-bar">
+    <img src="images/striped_bar.png">
+  
+
+  </div>
+  
+  <section class="container-fluid bg-light pt-0 pb-0" >
+    <div class="row align-items-center">
+    <div class="col-md-7 car-image-column"></div>
+    <div class="col-md-5">
+      <h2>We create<br>new technology</h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <p>Aenean sollicitudin, lorem quis bibendum auctor nisi elit consequat ipsum, nec sagittis</p>
+          <p>Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim.</p>
+        </div>
+        <div class="col-lg-6">
+           <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis nibh id elit. Duis sed odio sit amet.</p>
+           <p>Nullam imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis velit, rhoncus eu.</p>
+
+        </div>
+      </div>
+      <a href="#" class="btn btn-yellow mt-3">Go to Products</a>
+
+    </div>
+    </div>
+  </section>
+<section class="features-section bg-light pt-0 pb-0">
+
+
+<div class="container-fluid px-0">
+<div class="row text-center g-0">
+  <div class="col-lg-3 col-md-6 mb-4">
+  <div class="feature-box">
+<img class="feature-icon" src="images/icon2.png">
+<h4>Aenean sollicitudin lorem quis bibendum</h4>
+<p>Pellentesque a fermentum dui; sit amet dapibus nulla. Quisque vel hendrerit leo. Donec euismod commodo dui at lobortis.</p>
+</div>
+
+</div>
+<div class="col-lg-3 col-md-6 mb-4">
+  <div class="feature-box">
+    <img class="feature-icon" src="images/icon1.png">
+    <h4>In quis placerat leo metus nullam</h4>
+    <p>Pellentesque a fermentum dui; sit amet dapibus nulla. Quisque vel hendrerit leo. Donec euismod commodo dui at lobortis.</p>
+
+  </div>
+
+</div>
+<div class="col-lg-3 col-md-6 mb-4">
+  <div class="feature-box">
+    <img class="feature-icon" src="images/icon3.png">
+    <h4>Praesent volutpat morbi gravida</h4>
+    <p>Pellentesque a fermentum dui; sit amet dapibus nulla. Quisque vel hendrerit leo. Donec euismod commodo dui at lobortis.</p>
+
+  </div>
+
+</div>
+<div class="col-lg-3 col-md-6 mb-4">
+  <div class="feature-box">
+    <img class="feature-icon" src="images/icon4.png">
+    <h4>Dapibus risus ante sodales</h4>
+    <p>Pellentesque a fermentum dui; sit amet dapibus nulla. Quisque vel hendrerit leo. Donec euismod commodo dui at lobortis.</p>
+  </div>
+</div>
+
+</div>
+</div>
+</section>
+<section id="world-map-section">
+    <div class="vertical-line line-left"></div>
+    <div class="vertical-line line-right"></div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            
+            <div class="col-md-4">
+                <h2>We are<br>spread around<br>the world</h2>
+            </div>
+
+            <div class="col-md-4 text-center px-4">
+                <img src="images/map.png" class="img-fluid" alt="World Map">
+            </div>
+
+            <div class="col-md-4">
+                <p>Sed consequat varius eros eget vestibulum. Nullam bibendum, eros quis aliquet dictum, an tristique vitae rhoncus id, fringilla amet ligula.</p>
+                <a href="#" class="contact-link">Go to contact centre</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="since-1935-section">
+  <div class="container-fluid px-0">
+    <div class="row g-0">
+    <div class="col-md-6">
+      <div class="yellow-content-block">
+        <h2>We make car <br> elements since 1935</h2>
+        <h4>Aenean sollicitudin, lorem quis bibendum auctor nisi elit
+consequat ipsum, nec sagittis.</h4>
+<div class="row">
+<div class="col-lg-6">
+<p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellusin orci enim, luctus et interdum adipiscing wisi</p>
+</div>
+<div class="col-lg-6">
+
+
+<p>Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac.</p>
+</div>
+</div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5>
+          Shortcut Links
+        </h5>
+        <ul>
+          <li><a href="#">Quent per conubia nostra</a></li>
+          <li><a href="#">Quent per conubia nostra</a></li>
+          <li><a href="#">Mauris in erat</a></li>
+          <li><a href="#">Lustoac</a></li>
+        </ul>
+
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5>Our offer</h5>
+        <ul>
+          <li><a href="#"> Aenean sollicitudin orem qui</a></li>
+          <li><a href="#">Duis sed odio sit amet nibh</a></li>
+          <li><a href="#">Morbi accumsan ipsum velitNam nec tellus</a></li>
+          <li><a href="#"> Nam nec tellus</a></li>
+          <li><a href="#">Class aptent taciti sociosqu</a></li>
+          <li><a href="#">Mauris in erat justo</a></li>
+          <li><a href="#"> Sed non neque</a></li>
+        </ul>
+      </div>
+       <div class="col-lg-3 col-md-6 mb-4">
+                <h5>About us</h5>
+                <ul>
+                    <li><a href="#">Duis sed odio</a></li>
+                    <li><a href="#">Morbi accumsan</a></li>
+                    <li><a href="#">Nam nec tellus</a></li>
+                    <li><a href="#">Class aptent</a></li>
+                    <li><a href="#">Mauris in erat</a></li>
+                    <li><a href="#">Sed non neque</a></li>
+                </ul>
+            </div>
+         <div class="col-lg-3 col-md-6 mb-4">
+                <h5>Departments</h5>
+                <ul>
+                    <li><a href="#">Nam nec tellus</a></li>
+                    <li><a href="#">Class aptent</a></li>
+                    <li><a href="#">Mauris in erat</a></li>
+                    <li><a href="#">Sed non neque</a></li>
+                </ul>
+            </div>
+        </div>
+    
+</div>
+
+    </div>
+  </div>
+  
+</footer>
+ <div class="sub-footer">
+    <div class="container text-center ">
+        <p> @2021 Betheme by Muffin group | All Rights Reserved | Powered by WordPress</p>
+    </div>
+
+    <div class="footer-stripe">
+        <img src="images/striped_bar.png" >
+    </div>
+
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

@@ -1,0 +1,213 @@
+.mid-wrap{
+    background-color: #324968;
+    color:white;
+    padding: 70px 0 ;
+    text-align: center;
+    position:relative;
+    width: 100;
+   
+}
+.mid-wrap::before{
+    content: "";
+    position: absolute;
+    top:-30px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid #324968;
+}
+.mid-wrap p{
+    font-size:21px;
+    line-height: 1.6;
+    margin: 0 auto;
+
+}
+.strip-bar img{
+    width:100%;
+    display: block;
+    
+    
+
+}
+.btn-yellow{
+    background-color:#F7E900;
+    color:black;
+    font-weight: bold;
+    padding:10px 20px;
+    
+    border-radius: 0;
+    display: inline-block;
+
+
+}
+.car-image-column{
+    background-image: url("images/carsHome.jpg");
+    background-size:cover;
+    background-position: center;
+
+    min-height: 450px;
+
+   
+}
+.feature-box{
+    padding: 40px 20px;
+    background-color: #fff;
+    border:1px solid #e9e9e9;
+    border-radius: 5px;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+.feature-icon{
+    height: 100px;
+    width:auto;
+    margin-bottom: 25px;
+
+}
+.feature-box h4{
+    color:#444;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: left;
+}
+.feature-box p{
+    color:#777;
+    font-size: 1rem;
+}
+.feature-box:hover{
+    background-color: #e9eff5;
+    border-color: #d1dbe5;
+    
+}
+
+
+#world-map-section {
+    position: relative; 
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+}
+
+/* This is the new style for our vertical lines */
+.vertical-line {
+    position: absolute;
+    background-color: #bbbbbb;
+    width: 2px;
+    height: 400px; /* A FIXED HEIGHT! This will NOT change. Adjust if you want it taller or shorter. */
+    top: 50%; /* Position it in the middle vertically */
+    transform: translateY(-50%); /* Fine-tune the vertical centering */
+}
+
+
+.line-left {
+    left: 33%; /* Places it at the 1/3 mark of the section */
+}
+
+/* Position the right line */
+.line-right {
+    right: 33%; /* Places it at the 2/3 mark of the section */
+}
+
+/* Typography styles are the same */
+#world-map-section h2 {
+    font-size: 3.5rem; /* <<< YOU CAN NOW CHANGE THIS FREELY! */
+    font-weight: 300;
+    line-height: 1.2;
+    color: #444;
+    margin-right: 20px;
+    text-align: center;
+}
+
+#world-map-section p {
+    color: #666;
+    margin-left: 30px;
+}
+
+#world-map-section .contact-link {
+    color: #2a3a4e;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+#world-map-section .contact-link:hover {
+    color: #727374;
+}
+.since-1935-section{
+background-image:url("images/factory_section3_bg.jpg") ;
+background-size: cover;
+background-position: center;
+background-attachment: fixed;  /*scrolling effect*/
+}
+.yellow-content-block{
+    background-color: #F7E900;
+    padding:80px 60px;
+}
+.yellow-content-block h2{
+    color: #121e2d;
+    font-size: 54px;
+    line-height: 54px;
+    font-weight: 300;
+    letter-spacing: 0px;
+    font-family:"Roboto",Arial, Helvetica, sans-serif;
+    margin-bottom: 15px;
+    
+
+}
+.yellow-content-block h4{
+    color: #607ba0;
+    font-size: 21px;
+    line-height: 25px;
+    font-weight: 300;
+    letter-spacing: 0px;
+    font-family:"Roboto",Arial, Helvetica, sans-serif;
+    margin-bottom: 15px;
+    
+}
+.yellow-content-block p{
+    color:#445469;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight:400 ;
+    letter-spacing:0px ;
+}
+.site-footer{
+    background-color: #f4f6f8;
+    color:#4a6892;
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+.site-footer h5{
+    color: 607ba0;
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 450;
+    
+}
+.site-footer ul{
+       list-style: none; 
+    padding-left: 0; 
+    
+}
+.site-footer ul li a{
+    color:#536275;
+    text-decoration: none;
+}
+.sub-footer {
+    background-color: #cdd4df;
+    padding-top: 40px; 
+}
+
+.sub-footer p {
+    color: #727374; 
+    font-size: 0.9rem;
+    margin-bottom: 40px; 
+}
+.footer-stripe img {
+    width: 100%;
+    
+    display: block;
+}
+
