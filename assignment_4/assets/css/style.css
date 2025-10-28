@@ -1,0 +1,10 @@
+/* Minimal custom styles */
+body {
+  padding-bottom: 3rem;
+}
+#postsTable td {
+  vertical-align: middle;
+}
+#loading {
+  margin-top: 2rem;
+}
