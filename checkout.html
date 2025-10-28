@@ -13,358 +13,548 @@
   </head>
   <body>
     <main class="container py-5">
-      <div class="row g-5">
-        <div class="col-7 col-md-5">
+      <div class="mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="h4 mb-0">Checkout</h2>
+          <small class="text-muted d-none d-md-block">Secure payment</small>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-7">
           <div class="card">
             <div class="card-body">
-              <h3 class="card-title mb-4">Billing Details</h3>
-              <form class="row g-3 needs validation" novalidate>
-                <div class="col-md-6">
-                  <label for="firstName" class="form-label"
-                    >First Name<span class="text-danger">*</span></label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="firstName"
-                    required
-                  />
-                  <div class="invalid-feedback">
-                    Valid first name is required
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <label for="lastName" class="form-label"
-                    >Last Name <span class="text-danger">*</span></label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="lastName"
-                    required
-                  />
-                  <div class="invalid-feedback">
-                    Valid last name is required.
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <label for="email" class="form-label">
-                    Email<span class="text-danger">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    placeholder="you@example.com"
-                    required
-                  />
-                  <div class="invalid-feedback">
-                    Please enter a valid email address
-                  </div>
-                </div>
-                <div class="col-12">
-                  <label for="phone" class="form-label"
-                    >Phone <span class="text-danger">*</span></label
-                  >
-                  <input
-                    type="tel"
-                    class="form-control"
-                    id="phone"
-                    placeholder="+1 234 567 890"
-                    required
-                  />
-                  <div class="invalid-feedback">
-                    Please enter a valid phone number.
-                  </div>
-                </div>
-                <div class="col-12">
-                  <label for="companyName" class="form-label"
-                    >Company Name
-                    <span class="text-muted">(Optional)</span></label
-                  >
-                  <input type="text" class="form-control" id="companyName" />
-                </div>
-                <div class="col-12">
-                  <label for="country" class="form-label"
-                    >Country<span class="text-danger">*</span></label
-                  >
-                  <select class="form-select" id="country" required>
-                    <option value="">Choose...</option>
-                    <option>Pakistan</option>
-                    <option>United States</option>
-                    <option>United Kingdom</option>
-                    <option>Australia</option>
-                    <option>France</option>
-                    <option>Germany</option>
-                    <option>Italy</option>
-                    <option>Spain</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please select a valid country
-                  </div>
-                </div>
-                <div class="col-12">
-                  <label for="address1" class="form-label"
-                    >Address line 1 <span class="text-danger">*</span></label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="address1"
-                    required
-                  />
-                  <div class="invalid-feedback">
-                    Please enter your shipping address.
-                  </div>
-                </div>
-                <div class="col-12">
-                  <label for="address2" class="form-label"
-                    >Address line 2
-                    <span class="text-muted">(Optional)</span></label
-                  >
-                  <input type="text" class="form-control" id="address2" />
-                </div>
-                <div class="col-md-5">
-                  <label for="city" class="form-label"
-                    >City <span class="text-danger">*</span></label
-                  >
-                  <input type="text" class="form-control" id="city" required />
-                  <div class="invalid-feedback">City required.</div>
-                </div>
-                <div class="col-md-4">
-                  <label for="state" class="form-label"
-                    >State / Province / Region<span class="text-danger"
-                      >*</span
-                    ></label
-                  >
-                  <input type="text" class="form-control" id="state" required />
-                  <div class="invalid-feedback">State required.</div>
-                </div>
-                <div class="col-md-3">
-                  <label for="zip" class="form-label"
-                    >Zip / Postal Code <span class="text-danger">*</span></label
-                  >
-                  <input type="text" class="form-control" id="zip" required />
-                  <div class="invalid-feedback">Zip code required.</div>
-                </div>
-                <div class="col-12">
-                  <div class="form-check">
+              <h3 class="card-title mb-4">Customer & Shipping</h3>
+
+              <form id="checkoutForm" novalidate>
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label for="fullName" class="form-label"
+                      >Full name <span class="text-danger">*</span></label
+                    >
                     <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="sameAsShipping"
-                      checked
+                      type="text"
+                      id="fullName"
+                      name="fullName"
+                      class="form-control"
+                      aria-describedby="fullNameHelp"
+                      required
                     />
-                    <label class="form-check-label" for="sameAsShipping">
-                      Billing address is the same as my shipping address
-                    </label>
+                    <div id="fullNameHelp" class="invalid-feedback">
+                      Please enter your full name (at least 3 characters).
+                    </div>
                   </div>
-                </div>
-                <div class="col-12 text-end">
-                  <button class="btn btn-green" type="submit">
-                    Save and Continue
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
 
-        <div class="card mt-4">
-          <div class="card-body">
-            <h3 class="card-title mb-4">Select Payment Method</h3>
+                  <div class="col-md-6">
+                    <label for="email" class="form-label"
+                      >Email <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-control"
+                      placeholder="you@example.com"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Please enter a valid email address.
+                    </div>
+                  </div>
 
-            <div class="accordion" id="paymentAccordion">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingCard">
-                  <button
-                    class="accordion-button"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseCard"
-                    aria-expanded="true"
-                    aria-controls="collapseCard"
-                  >
+                  <div class="col-md-6">
+                    <label for="phone" class="form-label"
+                      >Phone <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      class="form-control"
+                      placeholder="1234567890"
+                      required
+                      aria-describedby="phoneHelp"
+                    />
+                    <div id="phoneHelp" class="invalid-feedback">
+                      Please enter a valid phone (digits only, min 10 digits).
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="address" class="form-label"
+                      >Address <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="address"
+                      name="address"
+                      class="form-control"
+                      required
+                    />
+                    <div class="invalid-feedback">Address is required.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="city" class="form-label"
+                      >City <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="city"
+                      name="city"
+                      class="form-control"
+                      required
+                    />
+                    <div class="invalid-feedback">City is required.</div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label for="postal" class="form-label"
+                      >Postal code <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="postal"
+                      name="postal"
+                      class="form-control"
+                      required
+                      aria-describedby="postalHelp"
+                    />
+                    <div id="postalHelp" class="invalid-feedback">
+                      Postal code required (4-6 digits).
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label for="country" class="form-label"
+                      >Country <span class="text-danger">*</span></label
+                    >
+                    <select
+                      id="country"
+                      name="country"
+                      class="form-select"
+                      required
+                    >
+                      <option value="">Choose...</option>
+                      <option>Pakistan</option>
+                      <option>United States</option>
+                      <option>United Kingdom</option>
+                      <option>Australia</option>
+                      <option>France</option>
+                      <option>Germany</option>
+                      <option>Italy</option>
+                      <option>Spain</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a country.</div>
+                  </div>
+
+                  <div class="col-12">
                     <div class="form-check">
                       <input
                         class="form-check-input"
-                        type="radio"
-                        name="paymentMethod"
-                        id="payCard"
-                        value="card"
-                        checked
+                        type="checkbox"
+                        id="sameAsBilling"
                       />
-                      <label class="form-check-label" for="payCard">
-                        Credit Card
-                      </label>
+                      <label class="form-check-label" for="sameAsBilling"
+                        >Billing address is the same as shipping</label
+                      >
                     </div>
-                  </button>
-                </h2>
-                <div
-                  id="collapseCard"
-                  class="accordion-collapse collapse show"
-                  aria-labelledby="headingCard"
-                  data-bs-parent="#paymentAccordion"
-                >
-                  <div class="accordion-body">
-                    <div class="row g-3">
-                      <div class="col-12">
-                        <label for="cardName" class="form-label"
-                          >Cardholder Name</label
-                        >
-                        <input type="text" class="form-control" id="cardName" />
+                  </div>
+
+                  <div class="col-12">
+                    <h4 class="h6 mt-3">Payment</h4>
+                    <div class="row g-2 align-items-center">
+                      <div class="col-auto">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="paymentMethod"
+                            id="payCard"
+                            value="card"
+                            checked
+                          />
+                          <label class="form-check-label" for="payCard"
+                            >Credit Card</label
+                          >
+                        </div>
                       </div>
-                      <div class="col-12">
+                      <div class="col-auto">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="paymentMethod"
+                            id="payCOD"
+                            value="cod"
+                          />
+                          <label class="form-check-label" for="payCOD"
+                            >Cash on Delivery</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="paymentMethod"
+                            id="payWallet"
+                            value="wallet"
+                          />
+                          <label class="form-check-label" for="payWallet"
+                            >E-Wallet</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="cardFields" class="col-12">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label for="cardName" class="form-label"
+                          >Cardholder name</label
+                        >
+                        <input type="text" id="cardName" class="form-control" />
+                        <div class="invalid-feedback">
+                          Cardholder name is required for card payments.
+                        </div>
+                      </div>
+                      <div class="col-md-6">
                         <label for="cardNumber" class="form-label"
-                          >Card Number</label
+                          >Card number</label
                         >
                         <input
                           type="text"
-                          class="form-control"
                           id="cardNumber"
+                          class="form-control"
                           placeholder="1234 5678 9012 3456"
+                          inputmode="numeric"
                         />
+                        <div class="invalid-feedback">
+                          Enter a valid card number.
+                        </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <label for="cardExpiry" class="form-label"
                           >Expiry</label
                         >
                         <input
                           type="text"
-                          class="form-control"
                           id="cardExpiry"
-                          placeholder="MM / YY"
+                          class="form-control"
+                          placeholder="MM/YY"
                         />
+                        <div class="invalid-feedback">
+                          Enter expiry (MM/YY).
+                        </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-2">
                         <label for="cardCVV" class="form-label">CVV</label>
                         <input
                           type="text"
-                          class="form-control"
                           id="cardCVV"
+                          class="form-control"
                           placeholder="123"
+                          inputmode="numeric"
                         />
+                        <div class="invalid-feedback">Enter CVV.</div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingCOD">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseCOD"
-                    aria-expanded="false"
-                    aria-controls="collapseCOD"
-                  >
+                  <div class="col-12">
                     <div class="form-check">
                       <input
                         class="form-check-input"
-                        type="radio"
-                        name="paymentMethod"
-                        id="payCOD"
-                        value="cod"
+                        type="checkbox"
+                        id="terms"
                       />
-                      <label class="form-check-label" for="payCOD">
-                        Cash on Delivery (COD)
-                      </label>
+                      <label class="form-check-label" for="terms"
+                        >I agree to the terms and conditions</label
+                      >
+                      <div
+                        class="invalid-feedback d-block"
+                        id="termsFeedback"
+                        style="display: none"
+                      >
+                        You must agree before placing an order.
+                      </div>
                     </div>
-                  </button>
-                </h2>
-                <div
-                  id="collapseCOD"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="headingCOD"
-                  data-bs-parent="#paymentAccordion"
-                >
-                  <div class="accordion-body">Pay with cash upon delivery.</div>
-                </div>
-              </div>
+                  </div>
 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingWallet">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseWallet"
-                    aria-expanded="false"
-                    aria-controls="collapseWallet"
+                  <div
+                    class="col-12 d-flex justify-content-between align-items-center"
                   >
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="paymentMethod"
-                        id="payWallet"
-                        value="wallet"
-                      />
-                      <label class="form-check-label" for="payWallet">
-                        E-Wallet
-                      </label>
-                    </div>
-                  </button>
-                </h2>
-                <div
-                  id="collapseWallet"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="headingWallet"
-                  data-bs-parent="#paymentAccordion"
-                >
-                  <div class="accordion-body">
-                    Pay with your preferred e-wallet provider.
+                    <button
+                      type="button"
+                      id="saveContinue"
+                      class="btn btn-outline-secondary"
+                    >
+                      Save and Continue
+                    </button>
+                    <button
+                      type="submit"
+                      id="placeOrder"
+                      class="btn btn-primary"
+                      disabled
+                    >
+                      Place Order
+                    </button>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-md-7">
+        <div class="col-12 col-md-5">
           <div class="card position-sticky" style="top: 20px">
             <div class="card-body">
-              <h3 class="card-title mb-4">Order Summary</h3>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Betheme | Responsive M...</span>
-                  <strong>$60.00</strong>
+              <h3 class="card-title mb-3">Order Summary</h3>
+              <ul class="list-group list-group-flush mb-3">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-start"
+                >
+                  <div>
+                    <div class="fw-semibold">Item Name</div>
+                    <small class="text-muted">Qty 1</small>
+                  </div>
+                  <div class="fw-semibold">$60.00</div>
                 </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Betheme | Responsive M...</span>
-                  <strong>$60.00</strong>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-start"
+                >
+                  <div>
+                    <div class="fw-semibold">Item Name</div>
+                    <small class="text-muted">Qty 1</small>
+                  </div>
+                  <div class="fw-semibold">$60.00</div>
                 </li>
                 <li
                   class="list-group-item d-flex justify-content-between text-muted"
                 >
-                  <span>Handling Fee: <i class="fas fa-info-circle"></i></span>
-                  <span>$0.00</span>
+                  <span>Shipping</span>
+                  <span>$5.00</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between text-muted"
+                >
+                  <span>Tax</span>
+                  <span>$2.00</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between fs-5">
-                  <strong>Total:</strong>
-                  <strong>US$ 120.00</strong>
+                  <strong>Total</strong>
+                  <strong>US$ 127.00</strong>
                 </li>
               </ul>
-              <form class="card p-2 mt-4">
+
+              <form class="mb-3" onsubmit="return false;">
                 <div class="input-group">
                   <input
                     type="text"
                     class="form-control"
                     placeholder="Promo code"
+                    aria-label="Promo code"
                   />
-                  <button type="submit" class="btn btn-secondary">Apply</button>
+                  <button class="btn btn-secondary" type="submit">Apply</button>
                 </div>
               </form>
-              <div class="text-center mt-4 text-muted">
-                <p><i class="fas fa-lock"></i> Secure checkout</p>
-              </div>
+
+              <p class="text-center text-muted small mb-0">
+                <i class="fas fa-lock"></i> Secure checkout
+              </p>
             </div>
           </div>
         </div>
       </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      (function ($) {
+        "use strict";
+
+        function showCardFields(show) {
+          if (show) {
+            $("#cardFields").slideDown();
+          } else {
+            $("#cardFields")
+              .find("input")
+              .val("")
+              .removeClass("is-invalid is-valid");
+            $("#cardFields").slideUp();
+          }
+        }
+
+        function validateEmail(email) {
+          return /^\S+@\S+\.\S+$/.test(email);
+        }
+
+        function onlyDigits(value) {
+          return value.replace(/\D/g, "");
+        }
+
+        function scrollToFirstInvalid() {
+          var $first = $(".is-invalid:first");
+          if ($first.length) {
+            $("html, body").animate(
+              { scrollTop: $first.offset().top - 20 },
+              300
+            );
+          }
+        }
+
+        function validateForm() {
+          var errors = 0;
+
+          var full = $.trim($("#fullName").val());
+          if (!full || full.length < 3) {
+            $("#fullName").addClass("is-invalid").removeClass("is-valid");
+            errors++;
+          } else {
+            $("#fullName").addClass("is-valid").removeClass("is-invalid");
+          }
+
+          var email = $.trim($("#email").val());
+          if (!email || !validateEmail(email)) {
+            $("#email").addClass("is-invalid").removeClass("is-valid");
+            errors++;
+          } else {
+            $("#email").addClass("is-valid").removeClass("is-invalid");
+          }
+
+          var phone = onlyDigits($.trim($("#phone").val()));
+          if (!phone || phone.length < 10) {
+            $("#phone").addClass("is-invalid").removeClass("is-valid");
+            errors++;
+          } else {
+            $("#phone").addClass("is-valid").removeClass("is-invalid");
+          }
+
+          var address = $.trim($("#address").val());
+          if (!address) {
+            $("#address").addClass("is-invalid").removeClass("is-valid");
+            errors++;
+          } else {
+            $("#address").addClass("is-valid").removeClass("is-invalid");
+          }
+
+          var city = $.trim($("#city").val());
+          if (!city) {
+            $("#city").addClass("is-invalid").removeClass("is-valid");
+            errors++;
+          } else {
+            $("#city").addClass("is-valid").removeClass("is-invalid");
+          }
+
+          var postal = onlyDigits($.trim($("#postal").val()));
+          if (!postal || postal.length < 4 || postal.length > 6) {
+            $("#postal").addClass("is-invalid").removeClass("is-valid");
+            errors++;
+          } else {
+            $("#postal").addClass("is-valid").removeClass("is-invalid");
+          }
+
+          var country = $("#country").val();
+          if (!country) {
+            $("#country").addClass("is-invalid").removeClass("is-valid");
+            errors++;
+          } else {
+            $("#country").addClass("is-valid").removeClass("is-invalid");
+          }
+
+          var pm = $("input[name=paymentMethod]:checked").val();
+          if (!pm) {
+            errors++;
+          }
+
+          if (pm === "card") {
+            var cName = $.trim($("#cardName").val());
+            var cNum = onlyDigits($("#cardNumber").val());
+            var cExp = $.trim($("#cardExpiry").val());
+            var cCvv = onlyDigits($("#cardCVV").val());
+
+            if (!cName) {
+              $("#cardName").addClass("is-invalid").removeClass("is-valid");
+              errors++;
+            } else {
+              $("#cardName").addClass("is-valid").removeClass("is-invalid");
+            }
+            if (!cNum || cNum.length < 12) {
+              $("#cardNumber").addClass("is-invalid").removeClass("is-valid");
+              errors++;
+            } else {
+              $("#cardNumber").addClass("is-valid").removeClass("is-invalid");
+            }
+            if (!cExp || !/^\d{2}\/\d{2}$/.test(cExp)) {
+              $("#cardExpiry").addClass("is-invalid").removeClass("is-valid");
+              errors++;
+            } else {
+              $("#cardExpiry").addClass("is-valid").removeClass("is-invalid");
+            }
+            if (!cCvv || cCvv.length < 3 || cCvv.length > 4) {
+              $("#cardCVV").addClass("is-invalid").removeClass("is-valid");
+              errors++;
+            } else {
+              $("#cardCVV").addClass("is-valid").removeClass("is-invalid");
+            }
+          }
+
+          var termsChecked = $("#terms").is(":checked");
+          if (!termsChecked) {
+            $("#termsFeedback").show();
+            errors++;
+          } else {
+            $("#termsFeedback").hide();
+          }
+
+          return { valid: errors === 0, errors: errors };
+        }
+
+        $(function () {
+          showCardFields(
+            $("input[name=paymentMethod]:checked").val() === "card"
+          );
+
+          $("input[name=paymentMethod]").on("change", function () {
+            var pm = $(this).val();
+            showCardFields(pm === "card");
+          });
+
+          $("#checkoutForm").on("input change", "input, select", function () {
+            $(this).removeClass("is-invalid");
+            $(this).addClass($(this).val() ? "is-valid" : "");
+          });
+
+          $("#terms").on("change", function () {
+            $("#termsFeedback").toggle(!this.checked);
+            $("#placeOrder").prop("disabled", !this.checked);
+          });
+
+          $("#saveContinue").on("click", function () {
+            var res = validateForm();
+            if (!res.valid) {
+              scrollToFirstInvalid();
+            } else {
+              alert("Details saved locally. Proceed to payment.");
+            }
+          });
+
+          $("#checkoutForm").on("submit", function (e) {
+            e.preventDefault();
+            var res = validateForm();
+            if (!res.valid) {
+              scrollToFirstInvalid();
+              return false;
+            }
+
+            alert("Order placed successfully!");
+            return true;
+          });
+        });
+      })(jQuery);
+    </script>
   </body>
 </html>
