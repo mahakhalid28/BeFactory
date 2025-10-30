@@ -7,7 +7,6 @@
   width: 100;
 }
 
-/* --- Reset / Base --- */
 * {
   box-sizing: border-box;
 }
@@ -24,7 +23,7 @@ img {
   display: block;
 }
 
-/* --- Simple layout system to replace Bootstrap container/row/col --- */
+/* --- Simple layout system (mobile-first) matching Bootstrap breakpoints --- */
 .container {
   width: 90%;
   max-width: 1100px;
@@ -45,45 +44,54 @@ img {
   padding-left: 15px;
   padding-right: 15px;
 }
-.col-md-4 {
-  flex: 0 0 33.3333%;
-  max-width: 33.3333%;
-}
-.col-md-5 {
-  flex: 0 0 41.6666%;
-  max-width: 41.6666%;
-}
-.col-md-6 {
-  flex: 0 0 50%;
-  max-width: 50%;
-}
-.col-lg-6 {
-  flex: 0 0 50%;
-  max-width: 50%;
-}
-.col-lg-3 {
-  flex: 0 0 25%;
-  max-width: 25%;
-}
-.col-md-7 {
-  flex: 0 0 58.3333%;
-  max-width: 58.3333%;
+
+/* Mobile-first: make columns full-width by default */
+[class*="col-"] {
+  flex: 0 0 100%;
+  max-width: 100%;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .col-md-4,
-  .col-md-5,
-  .col-md-6,
-  .col-md-7,
-  .col-lg-6,
-  .col-lg-3 {
-    flex: 0 0 100%;
-    max-width: 100%;
+/* Medium and up (≥768px) - .col-md-* classes */
+@media (min-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
   }
+  .col-md-5 {
+    flex: 0 0 41.6666%;
+    max-width: 41.6666%;
+  }
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .col-md-7 {
+    flex: 0 0 58.3333%;
+    max-width: 58.3333%;
+  }
+}
+
+/* Large and up (≥992px) - .col-lg-* classes */
+@media (min-width: 992px) {
+  .col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+/* Tidy up row gutters on small screens to avoid overflow */
+@media (max-width: 767.98px) {
   .row {
     margin-left: 0;
     margin-right: 0;
+  }
+  .row > [class*="col-"] {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
