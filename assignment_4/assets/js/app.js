@@ -1,22 +1,21 @@
-// app.js — CRUD interactions with JSONPlaceholder
-// Uses jQuery AJAX. No page reloads; client state mirrors API responses.
+
 
 const API_BASE = 'https://jsonplaceholder.typicode.com/posts';
 
 $(function () {
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));
 
-  // initial load
+  
   fetchPosts();
 
-  // open modal for new post
+  
   $('#addPostBtn').on('click', function () {
     resetForm();
     $('#postModalLabel').text('New Post');
     postModal.show();
   });
 
-  // save (create or update)
+ 
   $('#savePostBtn').on('click', function () {
     const id = $('#postId').val();
     const title = $('#postTitle').val().trim();
@@ -28,7 +27,7 @@ $(function () {
 
     const payload = { title, body, userId: 1 };
     if (id) {
-      // Update
+     
       showLoading(true);
       $.ajax({
         url: `${API_BASE}/${id}`,
@@ -36,7 +35,7 @@ $(function () {
         data: JSON.stringify(payload),
         contentType: 'application/json; charset=UTF-8'
       }).done(function (res) {
-        // update row in table
+       
         updateRowInTable(res);
         postModal.hide();
         showToast('Post updated', 'success');
@@ -92,7 +91,7 @@ $(function () {
   function fetchPosts() {
     showLoading(true);
     $.get(API_BASE).done(function (data) {
-      // JSONPlaceholder returns 100 posts; show first 20 for brevity
+      
       renderPosts(data.slice(0, 20));
     }).fail(function () {
       showToast('Failed to load posts', 'danger');
