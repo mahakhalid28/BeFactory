@@ -140,7 +140,6 @@ img {
   display: block !important;
 }
 
-/* container-controlled collapsed/expanded state */
 #testimonials.collapsed .more-testimonial {
   display: none;
   opacity: 0;
