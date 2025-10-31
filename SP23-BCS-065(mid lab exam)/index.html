@@ -290,14 +290,13 @@ consequat ipsum, nec sagittis.</h4>
     var container = document.getElementById('testimonials');
     if(!container || !btn) return;
 
-    document.addEventListener('DOMContentLoaded', function(){
+    function initTestimonials(){
       document.querySelectorAll('.more-testimonial').forEach(function(el){ el.classList.add('d-none'); el.classList.remove('show'); });
       container.classList.add('collapsed');
       container.classList.remove('expanded','expanded-hover');
       btn.innerText = 'Show more';
-    });
+    }
 
-    
     function expandTestimonials() {
       container.classList.add('expanded');
       container.classList.remove('collapsed');
@@ -312,12 +311,16 @@ consequat ipsum, nec sagittis.</h4>
       btn.innerText = 'Show more';
     }
 
-   
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTestimonials);
+    } else {
+      initTestimonials();
+    }
+
     btn.addEventListener('click', function(){
       if(container.classList.contains('expanded')) collapseTestimonials(); else expandTestimonials();
     });
 
-   
     container.addEventListener('mouseenter', function(){
       if(window.innerWidth >= 768 && !container.classList.contains('expanded')){
         document.querySelectorAll('.more-testimonial').forEach(function(el){ el.classList.remove('d-none'); setTimeout(function(){ el.classList.add('show'); }, 20); });
