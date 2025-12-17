@@ -1,0 +1,94 @@
+<section class="hero" style="height: 50vh">
+  <div class="hero-content">
+    <h1>OUR PRODUCTS</h1>
+  </div>
+</section>
+
+<section class="container" style="padding: 70px 0">
+  <div
+    style="
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+    "
+  >
+    <strong>Filter by Category: </strong>
+    <a
+      href="/products"
+      class="btn-yellow"
+      style="padding: 5px 15px; margin-right: 5px; font-size: 14px; <%= category === 'All' ? 'background-color: #333; color: #fff;' : '' %>"
+      >All</a
+    >
+    <a
+      href="/products?category=Engine"
+      class="btn-yellow"
+      style="padding: 5px 15px; margin-right: 5px; font-size: 14px; <%= category === 'Engine' ? 'background-color: #333; color: #fff;' : '' %>"
+      >Engine</a
+    >
+    <a
+      href="/products?category=Chassis"
+      class="btn-yellow"
+      style="padding: 5px 15px; margin-right: 5px; font-size: 14px; <%= category === 'Chassis' ? 'background-color: #333; color: #fff;' : '' %>"
+      >Chassis</a
+    >
+    <a
+      href="/products?category=Interior"
+      class="btn-yellow"
+      style="padding: 5px 15px; font-size: 14px; <%= category === 'Interior' ? 'background-color: #333; color: #fff;' : '' %>"
+      >Interior</a
+    >
+  </div>
+
+  <h2 class="mb-4">
+    <%= category === "All" ? "All Components" : category + " Components" %>
+  </h2>
+  <p class="mb-4">Explore our wide range of automotive technology.</p>
+
+  <div class="row">
+    <% if(productsList.length > 0) { %> <%
+    productsList.forEach(function(product) { %>
+    <div class="col-md-4" style="margin-bottom: 30px">
+      <div
+        class="feature-box"
+        style="text-align: center; padding: 20px; border: 1px solid #eee"
+      >
+        <img
+          src="/images/<%= product.image %>"
+          alt="<%= product.name %>"
+          style="height: 60px; margin: 0 auto 15px auto; display: block"
+        />
+
+        <h4><%= product.name %></h4>
+
+        <p style="font-size: 0.9rem; color: #666"><%= product.description %></p>
+
+        <p style="font-size: 1.1rem; color: #333">
+          Price: <strong>$<%= product.price %></strong>
+        </p>
+
+        <button class="btn-yellow">Add to Cart</button>
+      </div>
+    </div>
+    <% }); %> <% } else { %>
+    <div class="col-12 text-center">
+      <h3>No products found in this category.</h3>
+      <a href="/products" class="btn-yellow">View All Products</a>
+    </div>
+    <% } %>
+  </div>
+
+  <% if (totalPages > 1) { %>
+  <div style="margin-top: 50px; text-align: center">
+    <span style="margin-right: 10px">Page:</span>
+    <% for(let i = 1; i <= totalPages; i++) { %>
+    <a
+      href="/products?page=<%= i %><%= category !== 'All' ? '&category=' + category : '' %>"
+      class="btn-yellow"
+      style="padding: 5px 12px; margin: 0 5px; <%= currentPage == i ? 'background-color: #333; color: #fff;' : '' %>"
+    >
+      <%= i %>
+    </a>
+    <% } %>
+  </div>
+  <% } %>
+</section>

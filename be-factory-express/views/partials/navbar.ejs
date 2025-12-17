@@ -1,0 +1,44 @@
+<nav class="navbar">
+  <div class="container">
+    <a class="navbar-logo" href="/">
+      <img src="/images/retina-factory.png" alt="BeFactory Logo" />
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+
+    <div class="nav-links" id="navbarNav">
+      <ul class="nav-list">
+        <li>
+          <a
+            class="nav-link <%= title.includes('Home') ? 'active' : '' %>"
+            href="/"
+            >HOME</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link <%= title.includes('About') ? 'active' : '' %>"
+            href="/about"
+            >ABOUT FACTORY</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link <%= title.includes('Products') ? 'active' : '' %>"
+            href="/products"
+            >PRODUCTS</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link <%= title.includes('Contact') ? 'active' : '' %>"
+            href="/contact"
+            >CONTACT</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <a href="/buynow" class="buy-now">BUY NOW</a>
+  </div>
+</nav>
