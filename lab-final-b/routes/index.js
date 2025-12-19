@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Product = require('../models/products.js');
+var applyDiscount = require('../middlewares/applyDiscount'); // Import middleware
+var Order = require('../models/Order');
 
 /* GET Home page. */
 router.get('/', function(req, res, next) {
@@ -103,6 +105,67 @@ router.post('/place-order', function(req, res, next) {
       <a href="/products">Continue Shopping</a>
     </div>
   `);
+});
+router.post('/order/preview', applyDiscount, function(req, res) {
+  // Render the preview page with calculations from middleware
+  res.render('preview', {
+      title: 'Order Preview',
+      cart: req.session.cart,
+      customerName: req.body.customerName,
+      email: req.body.email,
+      discount: req.session.discount,
+      finalTotal: req.session.finalTotal
+  });
+});
+
+/* 2. CONFIRM ROUTE (Final Step) */
+router.post('/order/confirm', async function(req, res) {
+  let cart = req.session.cart;
+  let items = [];
+  
+  // Reconstruct items array
+  for (let id in cart) {
+      items.push({
+          productId: id,
+          name: cart[id].item.name,
+          price: cart[id].item.price,
+          quantity: cart[id].quantity
+      });
+  }
+
+  // Create Order with "Placed" status
+  let order = new Order({
+      customerName: req.body.customerName,
+      email: req.body.email,
+      items: items,
+      totalAmount: req.session.finalTotal, // Use the discounted total
+      status: "Placed"
+  });
+
+  await order.save();
+  
+  // Clear Session
+  req.session.cart = null;
+  req.session.discount = null;
+  req.session.finalTotal = null;
+
+  res.render('order-confirmation', { title: 'Success', order: order });
+});
+/* GET My Orders Page */
+router.get('/my-orders', async function(req, res) {
+  let orders = [];
+  let searched = false;
+
+  if (req.query.email) {
+      orders = await Order.find({ email: req.query.email });
+      searched = true;
+  }
+
+  res.render('my-orders', { 
+      title: 'My Orders', 
+      orders: orders,
+      searched: searched 
+  });
 });
 
 

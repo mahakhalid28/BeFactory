@@ -1,0 +1,59 @@
+<div class="admin-header">
+  <h1>Add New Product</h1>
+  <a href="/admin/products" class="btn-yellow">← Back to Dashboard</a>
+</div>
+
+<div
+  style="
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 0 auto;
+  "
+>
+  <form action="/admin/products/add" method="POST">
+    <div style="margin-bottom: 20px">
+      <label>Product Name</label>
+      <input type="text" name="name" required placeholder="e.g. V8 Engine" />
+    </div>
+
+    <div style="margin-bottom: 20px">
+      <label>Price ($)</label>
+      <input type="number" name="price" required placeholder="e.g. 4500" />
+    </div>
+
+    <div style="margin-bottom: 20px">
+      <label>Category</label>
+      <select name="category">
+        <option value="Engine">Engine</option>
+        <option value="Chassis">Chassis</option>
+        <option value="Interior">Interior</option>
+        <option value="Exterior">Exterior</option>
+      </select>
+    </div>
+
+    <div style="margin-bottom: 20px">
+      <label>Description</label>
+      <textarea
+        name="description"
+        rows="5"
+        required
+        placeholder="Product details..."
+      ></textarea>
+    </div>
+
+    <div style="margin-bottom: 20px">
+      <label>Image Filename</label>
+      <small style="display: block; color: #666; margin-bottom: 5px"
+        >(Enter filename from public/images/ folder)</small
+      >
+      <input type="text" name="image" value="icon1.png" />
+    </div>
+
+    <button type="submit" class="btn-yellow" style="width: 100%">
+      Create Product
+    </button>
+  </form>
+</div>

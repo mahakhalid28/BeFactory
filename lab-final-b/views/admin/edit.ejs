@@ -1,0 +1,41 @@
+<div class="admin-header">
+    <h1>Edit Product</h1>
+    <a href="/admin/products" class="btn-yellow">← Back to Dashboard</a>
+</div>
+
+<div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto;">
+    <form action="/admin/products/edit/<%= product._id %>" method="POST">
+        
+        <div style="margin-bottom: 20px;">
+            <label>Product Name</label>
+            <input type="text" name="name" value="<%= product.name %>" required>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label>Price ($)</label>
+            <input type="number" name="price" value="<%= product.price %>" required>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label>Category</label>
+            <select name="category">
+                <option value="Engine" <%= product.category == 'Engine' ? 'selected' : '' %>>Engine</option>
+                <option value="Chassis" <%= product.category == 'Chassis' ? 'selected' : '' %>>Chassis</option>
+                <option value="Interior" <%= product.category == 'Interior' ? 'selected' : '' %>>Interior</option>
+                <option value="Exterior" <%= product.category == 'Exterior' ? 'selected' : '' %>>Exterior</option>
+            </select>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label>Description</label>
+            <textarea name="description" rows="5" required><%= product.description %></textarea>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label>Image Filename</label>
+            <input type="text" name="image" value="<%= product.image %>">
+        </div>
+
+        <button type="submit" class="btn-yellow" style="width: 100%;">Update Product</button>
+    </form>
+</div>

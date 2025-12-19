@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - Be Factory</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        display: flex;
+        min-height: 100vh;
+        background-color: #f4f6f9;
+      }
+
+      /* Sidebar Styling */
+      .sidebar {
+        width: 250px;
+        background-color: #1e293b;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        flex-shrink: 0;
+      }
+
+      .sidebar h3 {
+        color: #fbbf24; /* Yellow to match your theme */
+        margin-bottom: 40px;
+        text-align: center;
+        border-bottom: 1px solid #334155;
+        padding-bottom: 20px;
+      }
+
+      .sidebar a {
+        color: #cbd5e1;
+        text-decoration: none;
+        padding: 12px 15px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        transition: 0.3s;
+        font-size: 15px;
+      }
+
+      .sidebar a:hover {
+        background-color: #334155;
+        color: white;
+      }
+
+      .sidebar .active {
+        background-color: #fbbf24;
+        color: #1e293b;
+        font-weight: bold;
+      }
+
+      /* Main Content Styling */
+      .main-content {
+        flex-grow: 1;
+        padding: 40px;
+        overflow-y: auto;
+      }
+
+      .admin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      /* Table Styling */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      th {
+        background-color: #f8fafc;
+        font-weight: 600;
+        color: #475569;
+      }
+
+      /* Button Styling */
+      .btn-yellow {
+        background-color: #fbbf24;
+        color: #1e293b;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-sm {
+        padding: 5px 10px;
+        font-size: 13px;
+        text-decoration: none;
+        border-radius: 4px;
+        display: inline-block;
+      }
+      .btn-edit {
+        background-color: #e2e8f0;
+        color: #1e293b;
+        margin-right: 5px;
+      }
+      .btn-danger {
+        background-color: #ef4444;
+        color: white;
+      }
+
+      /* Form Styling */
+      input,
+      select,
+      textarea {
+        border: 1px solid #cbd5e1;
+        border-radius: 4px;
+        font-size: 14px;
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+      }
+
+      label {
+        font-weight: 600;
+        color: #334155;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <h3>Admin Panel</h3>
+      <a href="/admin/products">📦 Manage Products</a>
+      <a href="/admin/products/add">➕ Add New Product</a>
+
+      <a href="/admin/orders">📋 Manage Orders</a>
+
+      <div style="flex-grow: 1"></div>
+      <a
+        href="/"
+        target="_blank"
+        style="background: #334155; text-align: center"
+        >Go to Website ➡</a
+      >
+    </div>
+
+    <div class="main-content"><%- body %></div>
+  </body>
+</html>

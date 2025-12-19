@@ -1,0 +1,83 @@
+<div class="container" style="margin-top: 30px">
+  <h2 class="mb-4">Manage Orders (Lifecycle)</h2>
+
+  <% if (!orders || orders.length === 0) { %>
+  <div class="alert alert-info">No orders found.</div>
+  <% } else { %>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Order ID</th>
+          <th>Customer</th>
+          <th>Date</th>
+          <th>Total</th>
+          <th>Current Status</th>
+          <th>Update Status (Actions)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(function(order) { %>
+        <tr>
+          <td><%= order._id %></td>
+          <td>
+            <%= order.customerName %> <br />
+            <small class="text-muted"><%= order.email %></small>
+          </td>
+          <td><%= order.createdAt.toLocaleDateString() %></td>
+          <td><strong>$<%= order.totalAmount %></strong></td>
+
+          <td>
+            <% if (order.status === 'Placed') { %>
+            <span class="badge bg-primary">Placed</span>
+            <% } else if (order.status === 'Processing') { %>
+            <span class="badge bg-warning text-dark">Processing</span>
+            <% } else if (order.status === 'Delivered') { %>
+            <span class="badge bg-success">Delivered</span>
+            <% } else { %>
+            <span class="badge bg-danger">Cancelled</span>
+            <% } %>
+          </td>
+
+          <td>
+            <% if (order.status === 'Placed') { %>
+            <form
+              action="/admin/orders/update-status"
+              method="POST"
+              class="d-inline"
+            >
+              <input type="hidden" name="orderId" value="<%= order._id %>" />
+              <input type="hidden" name="status" value="Processing" />
+              <button class="btn btn-sm btn-info">Mark Processing</button>
+            </form>
+            <% } else if (order.status === 'Processing') { %>
+            <form
+              action="/admin/orders/update-status"
+              method="POST"
+              class="d-inline"
+            >
+              <input type="hidden" name="orderId" value="<%= order._id %>" />
+              <input type="hidden" name="status" value="Delivered" />
+              <button class="btn btn-sm btn-success">Mark Delivered</button>
+            </form>
+            <% } %> <% if (order.status !== 'Delivered' && order.status !==
+            'Cancelled') { %>
+            <form
+              action="/admin/orders/update-status"
+              method="POST"
+              class="d-inline ms-2"
+            >
+              <input type="hidden" name="orderId" value="<%= order._id %>" />
+              <input type="hidden" name="status" value="Cancelled" />
+              <button class="btn btn-sm btn-danger">Cancel</button>
+            </form>
+            <% } %>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+  <% } %>
+</div>

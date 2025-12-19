@@ -1,0 +1,57 @@
+<%- include('partials/navbar') %>
+
+<div class="container" style="margin-top: 100px; min-height: 60vh">
+  <h2 class="mb-4">My Orders</h2>
+
+  <form action="/my-orders" method="GET" class="mb-5">
+    <div class="input-group">
+      <input
+        type="email"
+        name="email"
+        class="form-control"
+        placeholder="Enter your email to view orders"
+        required
+      />
+      <button class="btn btn-primary">Search Orders</button>
+    </div>
+  </form>
+
+  <% if (orders && orders.length > 0) { %>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Total Paid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+        <tr>
+          <td><%= order._id %></td>
+          <td><%= order.createdAt.toDateString() %></td>
+          <td>
+            <% if (order.status === 'Placed') { %>
+            <span class="badge bg-primary">Placed</span>
+            <% } else if (order.status === 'Processing') { %>
+            <span class="badge bg-warning text-dark">Processing</span>
+            <% } else if (order.status === 'Delivered') { %>
+            <span class="badge bg-success">Delivered</span>
+            <% } else { %>
+            <span class="badge bg-danger">Cancelled</span>
+            <% } %>
+          </td>
+          <td><strong>$<%= order.totalAmount %></strong></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <% } else if (locals.searched) { %>
+  <div class="alert alert-warning">No orders found for this email address.</div>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>
