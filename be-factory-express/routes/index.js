@@ -32,7 +32,7 @@ router.get('/products', async function(req, res, next) {
       productsList: products,
       currentPage: page,
       totalPages: totalPages,
-      category: req.query.category || "All" // Send current category to view
+      category: req.query.category || "All" 
     });
   } catch (error) {
     console.log(error);

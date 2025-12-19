@@ -8,7 +8,7 @@
 
     <div class="nav-links" id="navbarNav">
       <ul class="nav-list">
-        <li>
+        <li></li>
           <a
             class="nav-link <%= title.includes('Home') ? 'active' : '' %>"
             href="/"
@@ -36,6 +36,39 @@
             >CONTACT</a
           >
         </li>
+
+        <% if (!user) { %>
+        <li>
+          <a
+            class="nav-link <%= title == 'Login' ? 'active' : '' %>"
+            href="/login"
+            >LOGIN</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link <%= title == 'Register' ? 'active' : '' %>"
+            href="/register"
+            >REGISTER</a
+          >
+        </li>
+        <% } else { %> <% if (user.role === 'admin') { %>
+        <li>
+          <a
+            class="nav-link"
+            href="/admin/products"
+            style="color: #fbbf24; font-weight: bold"
+            >ADMIN PANEL</a
+          >
+        </li>
+        <% } %>
+
+       
+
+        <li>
+          <a class="nav-link" href="/logout" style="color: #ff6b6b;margin-right: 10px;">LOGOUT</a>
+        </li>
+        <% } %>
       </ul>
     </div>
 

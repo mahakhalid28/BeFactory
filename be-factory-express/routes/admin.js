@@ -1,6 +1,9 @@
 var express = require('express');
+
 var router = express.Router();
 var Product = require('../models/products.js');
+var checkAdmin = require('../middlewares/checkAdmin');
+router.use(checkAdmin);
 
 router.get('/', function(req, res, next) {
   res.redirect('/admin/products');

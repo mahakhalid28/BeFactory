@@ -4,9 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressLayouts = require('express-ejs-layouts'); 
+var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
+var usersRouter = require('./routes/users');
+
 
 var app = express();
 
@@ -24,8 +27,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); 
 
+// Session Middleware
+app.use(session({
+  secret: 'secretkey', // In real app, put this in config
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 * 60 } 
+}));
+
+
+app.use(function(req, res, next) {
+  res.locals.user = req.session.user; 
+  next();
+});
+
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
+app.use('/', usersRouter); 
 
 
 app.use(function(req, res, next) {
@@ -33,11 +51,17 @@ app.use(function(req, res, next) {
 });
 
 
+// Error handler
 app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
   res.status(err.status || 500);
-  res.render('error'); 
+  
+  // FIX: We added { title: 'Error' } so the navbar loads correctly
+  res.render('error', { title: 'Error Occurred' }); 
 });
 
 module.exports = app;
